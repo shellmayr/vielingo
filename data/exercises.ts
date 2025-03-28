@@ -212,7 +212,7 @@ export const exercises: Exercise[] = [
     description: "Build your food vocabulary and learn how to order meals at restaurants with confidence.",
     level: "Intermediate",
     duration: "20 min",
-    imageUrl: "/images/hare.png",
+    imageUrl: "/images/bear_eating.png",
     tags: ["vocabulary", "dining", "conversation"],
     exerciseType: "vocabulary",
     content: {
@@ -406,7 +406,7 @@ export const exercises: Exercise[] = [
     description: "Learn how to ask for and give directions, plus vocabulary for different types of transportation.",
     level: "Advanced",
     duration: "30 min",
-    imageUrl: "/images/frog.png",
+    imageUrl: "/images/hare_bike.png",
     tags: ["vocabulary", "travel", "conversation"],
     exerciseType: "conversation",
     content: {
@@ -419,7 +419,7 @@ export const exercises: Exercise[] = [
     description: "Expand your vocabulary related to hobbies, sports, and leisure activities in German.",
     level: "Beginner",
     duration: "15 min",
-    imageUrl: "/images/bear.png",
+    imageUrl: "/images/owl_knit.png",
     tags: ["vocabulary", "conversation", "leisure"],
     exerciseType: "vocabulary",
     content: {
@@ -445,7 +445,7 @@ export const exercises: Exercise[] = [
     description: "Build vocabulary for shopping situations, including clothing, sizes, prices, and common phrases.",
     level: "Intermediate",
     duration: "25 min",
-    imageUrl: "/images/frog.png",
+    imageUrl: "/images/frog_shop.png",
     tags: ["vocabulary", "shopping", "conversation"],
     exerciseType: "vocabulary",
     content: {
