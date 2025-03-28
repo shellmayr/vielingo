@@ -1,6 +1,4 @@
 import { Navigation } from "@/components/navigation"
-import { BackgroundClouds } from "@/components/background-clouds"
-import { BackgroundGlow } from "@/components/background-glow"
 import Link from "next/link"
 
 interface ExercisePageProps {
@@ -14,10 +12,6 @@ export default function ExercisePage({ params }: ExercisePageProps) {
 
   return (
     <div className="min-h-screen bg-sage-green relative overflow-hidden">
-      {/* Background effects */}
-      <BackgroundGlow />
-      <BackgroundClouds />
-
       {/* Navigation */}
       <Navigation />
 

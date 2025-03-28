@@ -19,7 +19,7 @@ export default function ExercisesPage() {
       description: "Master the phrases needed to introduce yourself and ask others about their name, origin, and interests.",
       level: "Beginner",
       duration: "15 min",
-      imageUrl: "/images/bear.png",
+      imageUrl: "/images/hare.png",
     },
     {
       id: "food-vocabulary",
@@ -27,7 +27,7 @@ export default function ExercisesPage() {
       description: "Build your food vocabulary and learn how to order meals at restaurants with confidence.",
       level: "Intermediate",
       duration: "20 min",
-      imageUrl: "/images/hare.png",
+      imageUrl: "/images/bear_eating.png",
     },
     {
       id: "daily-routines",
@@ -35,7 +35,7 @@ export default function ExercisesPage() {
       description: "Practice describing your daily activities using present tense verbs and time expressions.",
       level: "Intermediate",
       duration: "25 min",
-      imageUrl: "/images/hare.png",
+      imageUrl: "/images/frog_shop.png",
     },
     {
       id: "transport-directions",
@@ -43,7 +43,7 @@ export default function ExercisesPage() {
       description: "Learn how to ask for and give directions, plus vocabulary for different types of transportation.",
       level: "Advanced",
       duration: "30 min",
-      imageUrl: "/images/frog.png",
+      imageUrl: "/images/hare_bike.png",
     },
   ];
 
