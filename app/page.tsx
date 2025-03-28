@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
 import { AnimalsDisplay } from "@/components/animals-display"
-import { BackgroundClouds } from "@/components/background-clouds"
-import { BackgroundGlow } from "@/components/background-glow"
 
 export default function Home() {
   return (

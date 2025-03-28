@@ -63,6 +63,7 @@ const config: Config = {
         "sage-dark": "#3a523a",
         cream: "#f5efd5",
         tan: "#c69c6d",
+        "tan-light": "#d8b992",
       },
       borderRadius: {
         lg: "var(--radius)",

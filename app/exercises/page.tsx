@@ -1,7 +1,6 @@
 import { ExercisePanel } from "@/components/exercise-panel"
 import { Navigation } from "@/components/navigation"
-import { BackgroundClouds } from "@/components/background-clouds"
-import { BackgroundGlow } from "@/components/background-glow"
+import { SpotlightGlow } from "@/components/spotlight-glow";
 
 export default function ExercisesPage() {
   // Sample exercise data - in a real app this would come from a database or API
@@ -50,20 +49,13 @@ export default function ExercisesPage() {
 
   return (
     <div className="min-h-screen bg-sage-green relative overflow-hidden">
-      {/* Background effects */}
-      <BackgroundGlow />
-      <BackgroundClouds />
-
       {/* Navigation */}
       <Navigation />
 
       {/* Main Content */}
       <main className="relative z-20 py-12">
         <div className="mx-auto max-w-4xl px-4">
-          <h1 className="text-sage-dark text-3xl md:text-5xl font-winky text-center mb-12 relative z-50">
-            German Exercises
-          </h1>
-
+          <SpotlightGlow />
           <div className="flex flex-col gap-6">
             {exercises.map((exercise) => (
               <ExercisePanel 
