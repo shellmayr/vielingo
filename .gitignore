@@ -30,3 +30,7 @@ next-env.d.ts
 
 # Sentry Config File
 .sentryclirc
+
+# macOS system files
+.DS_Store
+**/.DS_Store

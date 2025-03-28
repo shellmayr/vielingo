@@ -17,6 +17,12 @@ const config: Config = {
       },
     },
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'glow-yellow': 'radial-gradient(circle, rgba(254, 249, 195, 0.7) 0%, rgba(254, 249, 195, 0.2) 40%, transparent 70%)',
+        'glow-teal': 'radial-gradient(circle, rgba(204, 251, 241, 0.7) 0%, rgba(204, 251, 241, 0.2) 40%, transparent 70%)',
+        'glow-blue': 'radial-gradient(circle, rgba(219, 234, 254, 0.7) 0%, rgba(219, 234, 254, 0.2) 40%, transparent 70%)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

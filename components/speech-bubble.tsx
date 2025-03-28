@@ -11,6 +11,7 @@ interface SpeechBubbleProps {
 export function SpeechBubble({ text, position = {} }: SpeechBubbleProps) {
   return (
     <div
+      className="z-50"
       style={{
         position: "relative",
         ...position,
