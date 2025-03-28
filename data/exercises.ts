@@ -16,8 +16,9 @@ export interface Exercise {
     practiceScenarios?: PracticeScenario[];
     quizQuestions?: QuizQuestion[];
     grammarRules?: GrammarRule[];
+    gapFillingSentences?: GapFillingSentence[];
   };
-  exerciseType: "vocabulary" | "grammar" | "conversation" | "reading" | "listening";
+  exerciseType: "vocabulary" | "grammar" | "conversation" | "reading" | "listening" | "gapFilling";
 }
 
 export interface GrammarRule {
@@ -52,6 +53,17 @@ export interface QuizQuestion {
   options: string[];
   correctAnswer: string;
   explanation: string;
+}
+
+export interface GapFillingSentence {
+  sentence: string; // The sentence with [gaps] for missing words
+  missingWords: string[]; // Array of words that fill the gaps
+  distractorWords?: string[]; // Additional plausible but incorrect options
+  translations?: {
+    english: string; // The English translation of the full sentence
+    germanComplete: string; // The complete German sentence (no gaps)
+  };
+  hint?: string; // Optional hint to help the user
 }
 
 export const exercises: Exercise[] = [
@@ -408,9 +420,204 @@ export const exercises: Exercise[] = [
     duration: "30 min",
     imageUrl: "/images/hare_bike.png",
     tags: ["vocabulary", "travel", "conversation"],
-    exerciseType: "conversation",
+    exerciseType: "gapFilling",
     content: {
-      introduction: "Being able to navigate and ask for directions is essential when traveling in German-speaking countries.",
+      introduction: "Being able to navigate and ask for directions is essential when traveling in German-speaking countries. This exercise will help you learn key phrases and vocabulary for transportation and giving/asking for directions.",
+      vocabularyItems: [
+        {
+          german: "der Bahnhof",
+          english: "train station",
+          pronunciation: "dair BAHN-hohf",
+          context: "One of the most important transportation hubs in German cities"
+        },
+        {
+          german: "die Haltestelle",
+          english: "stop (bus/tram)",
+          pronunciation: "dee HAL-teh-shtel-eh",
+          context: "Where you wait for public transportation"
+        },
+        {
+          german: "die U-Bahn",
+          english: "subway/metro",
+          pronunciation: "dee OO-bahn",
+          context: "Underground train system in larger cities"
+        },
+        {
+          german: "die S-Bahn",
+          english: "suburban/city train",
+          pronunciation: "dee ESS-bahn",
+          context: "Connects the city center with outlying areas"
+        },
+        {
+          german: "der Bus",
+          english: "bus",
+          pronunciation: "dair BOOS",
+          context: "Common form of public transport in all cities"
+        },
+        {
+          german: "die Straßenbahn",
+          english: "tram/streetcar",
+          pronunciation: "dee SHTRAH-sen-bahn",
+          context: "Rail transport that runs on streets in many German cities"
+        },
+        {
+          german: "das Fahrrad",
+          english: "bicycle",
+          pronunciation: "das FAHR-raht",
+          context: "Very popular means of transportation in Germany"
+        },
+        {
+          german: "zu Fuß gehen",
+          english: "to walk/go by foot",
+          pronunciation: "tsoo FOOS gay-en",
+          context: "Often the best way to explore city centers"
+        },
+        {
+          german: "die Kreuzung",
+          english: "intersection/crossing",
+          pronunciation: "dee KROY-tsung",
+          context: "Where two or more roads meet"
+        },
+        {
+          german: "die Ampel",
+          english: "traffic light",
+          pronunciation: "dee AM-pel",
+          context: "Regulates traffic at intersections"
+        },
+        {
+          german: "links",
+          english: "left",
+          pronunciation: "links",
+          context: "Used when giving directions"
+        },
+        {
+          german: "rechts",
+          english: "right",
+          pronunciation: "rechts",
+          context: "Used when giving directions"
+        },
+        {
+          german: "geradeaus",
+          english: "straight ahead",
+          pronunciation: "geh-RAH-deh-ows",
+          context: "Used when giving directions"
+        },
+        {
+          german: "die Karte",
+          english: "map",
+          pronunciation: "dee KAR-teh",
+          context: "Helpful when navigating"
+        },
+        {
+          german: "Wie komme ich zum/zur...?",
+          english: "How do I get to the...?",
+          pronunciation: "vee KOM-eh ich tsoom/tsoor",
+          context: "Common phrase for asking directions",
+          formal: true
+        }
+      ],
+      gapFillingSentences: [
+        {
+          sentence: "Entschuldigung, wie komme ich zum [gap]?",
+          missingWords: ["Bahnhof"],
+          distractorWords: ["Kuchen", "Haustier", "Bleistift", "Garten"],
+          translations: {
+            english: "Excuse me, how do I get to the train station?",
+            germanComplete: "Entschuldigung, wie komme ich zum Bahnhof?"
+          },
+          hint: "This is where trains arrive and depart."
+        },
+        {
+          sentence: "Die nächste [gap] ist nur fünf Minuten zu Fuß.",
+          missingWords: ["Haltestelle"],
+          distractorWords: ["Tablette", "Schildkröte", "Musikgruppe", "Süßigkeit"],
+          translations: {
+            english: "The next stop is only five minutes on foot.",
+            germanComplete: "Die nächste Haltestelle ist nur fünf Minuten zu Fuß."
+          },
+          hint: "Where you wait for the bus or tram."
+        },
+        {
+          sentence: "Gehen Sie [gap] an der Kreuzung und dann die zweite Straße rechts.",
+          missingWords: ["links"],
+          distractorWords: ["blau", "schnell", "gestern", "ruhig"],
+          translations: {
+            english: "Go left at the intersection and then take the second street on the right.",
+            germanComplete: "Gehen Sie links an der Kreuzung und dann die zweite Straße rechts."
+          },
+          hint: "The opposite of right."
+        },
+        {
+          sentence: "Ich fahre lieber mit dem [gap] als mit dem Auto.",
+          missingWords: ["Fahrrad"],
+          distractorWords: ["Kissen", "Löffel", "Regenschirm", "Teppich"],
+          translations: {
+            english: "I prefer to ride the bicycle rather than the car.",
+            germanComplete: "Ich fahre lieber mit dem Fahrrad als mit dem Auto."
+          },
+          hint: "A two-wheeled, eco-friendly vehicle."
+        },
+        {
+          sentence: "Die [gap] fährt alle 10 Minuten zum Hauptbahnhof.",
+          missingWords: ["Straßenbahn"],
+          distractorWords: ["Banane", "Wolke", "Katze", "Zeitung"],
+          translations: {
+            english: "The tram runs every 10 minutes to the main station.",
+            germanComplete: "Die Straßenbahn fährt alle 10 Minuten zum Hauptbahnhof."
+          },
+          hint: "A rail vehicle that runs on streets."
+        },
+        {
+          sentence: "Warten Sie an der [gap], bis sie grün wird.",
+          missingWords: ["Ampel"],
+          distractorWords: ["Tasse", "Pizza", "Blume", "Uhr"],
+          translations: {
+            english: "Wait at the traffic light until it turns green.",
+            germanComplete: "Warten Sie an der Ampel, bis sie grün wird."
+          },
+          hint: "It changes from red to yellow to green."
+        },
+        {
+          sentence: "Um zum Museum zu kommen, nehmen Sie die [gap] Linie 3 bis Marktplatz.",
+          missingWords: ["U-Bahn"],
+          distractorWords: ["Sonne", "Maus", "Schere", "Milch"],
+          translations: {
+            english: "To get to the museum, take the subway line 3 to Market Square.",
+            germanComplete: "Um zum Museum zu kommen, nehmen Sie die U-Bahn Linie 3 bis Marktplatz."
+          },
+          hint: "An underground train system."
+        },
+        {
+          sentence: "Fahren Sie drei Stationen mit dem [gap] und steigen Sie am Rathaus aus.",
+          missingWords: ["Bus"],
+          distractorWords: ["Käse", "Fenster", "Pullover", "Seife"],
+          translations: {
+            english: "Take the bus for three stops and get off at City Hall.",
+            germanComplete: "Fahren Sie drei Stationen mit dem Bus und steigen Sie am Rathaus aus."
+          },
+          hint: "A common form of public transportation on wheels."
+        },
+        {
+          sentence: "Gehen Sie an der nächsten [gap] über die Straße und dann geradeaus.",
+          missingWords: ["Kreuzung"],
+          distractorWords: ["Birne", "Jacke", "Kamera", "Briefmarke"],
+          translations: {
+            english: "Cross the street at the next intersection and then go straight ahead.",
+            germanComplete: "Gehen Sie an der nächsten Kreuzung über die Straße und dann geradeaus."
+          },
+          hint: "Where two roads meet."
+        },
+        {
+          sentence: "Ich muss jetzt [gap], mein Zug fährt in 15 Minuten ab.",
+          missingWords: ["gehen"],
+          distractorWords: ["kochen", "schlafen", "singen", "malen"],
+          translations: {
+            english: "I have to go now, my train leaves in 15 minutes.",
+            germanComplete: "Ich muss jetzt gehen, mein Zug fährt in 15 Minuten ab."
+          },
+          hint: "The action of moving on foot."
+        }
+      ]
     }
   },
   {

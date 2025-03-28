@@ -1,6 +1,7 @@
 import { Exercise } from "@/data/exercises"
 import { VocabularyExercise } from "@/components/exercise-types/vocabulary-exercise"
 import { GrammarExercise } from "@/components/exercise-types/grammar-exercise"
+import { GapFillingExercise } from "@/components/exercise-types/gap-filling-exercise"
 
 interface ExerciseRouterProps {
   exercise: Exercise
@@ -14,6 +15,9 @@ export function ExerciseRouter({ exercise }: ExerciseRouterProps) {
       
     case "grammar":
       return <GrammarExercise exercise={exercise} />
+    
+    case "gapFilling":
+      return <GapFillingExercise exercise={exercise} />
       
     case "conversation":
       // For now, we'll show a placeholder since we haven't implemented conversation exercises

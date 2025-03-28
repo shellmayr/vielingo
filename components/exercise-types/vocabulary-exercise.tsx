@@ -76,9 +76,21 @@ export function VocabularyExercise({ exercise }: VocabularyExerciseProps) {
 
   return (
     <div className="space-y-8">
-      {/* Exercise introduction */}
-      <div className="bg-cream/50 p-6 rounded-xl">
-        <p className="text-lg">{exercise.content?.introduction}</p>
+      {/* Exercise image and introduction */}
+      <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
+        <div className="w-full md:w-1/3 flex justify-center">
+          <div className="w-64 h-64 relative rounded-xl shadow-md overflow-hidden">
+            <img 
+              src={exercise.imageUrl} 
+              alt={exercise.title} 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <div className="w-full md:w-2/3 bg-cream/50 p-6 rounded-xl">
+          <h2 className="text-2xl font-bold text-sage-dark mb-3">{exercise.title}</h2>
+          <p className="text-lg">{exercise.content?.introduction}</p>
+        </div>
       </div>
 
       {/* Tab Navigation */}
