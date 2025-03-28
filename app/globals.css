@@ -56,6 +56,11 @@ body {
   font-weight: 600;
 }
 
+.font-mogra {
+  font-family: "Mogra", cursive;
+  font-weight: 400;
+}
+
 /* Cloud animations */
 @keyframes float {
   0% {

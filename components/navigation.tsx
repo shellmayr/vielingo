@@ -26,7 +26,7 @@ export function Navigation() {
             <Link href="/">
               <div className="flex items-center gap-2">
                 <Logo />
-                <span className="text-sage-dark text-xl font-winky z-50">VieLinGo</span>
+                <span className="text-sage-dark text-xl font-mogra z-50">vielingo</span>
               </div>
             </Link>
           </div>

@@ -1,5 +1,6 @@
 import { Exercise } from "@/data/exercises"
 import { VocabularyExercise } from "@/components/exercise-types/vocabulary-exercise"
+import { GrammarExercise } from "@/components/exercise-types/grammar-exercise"
 
 interface ExerciseRouterProps {
   exercise: Exercise
@@ -12,13 +13,7 @@ export function ExerciseRouter({ exercise }: ExerciseRouterProps) {
       return <VocabularyExercise exercise={exercise} />
       
     case "grammar":
-      // For now, we'll show a placeholder since we haven't implemented grammar exercises
-      return (
-        <div className="bg-cream p-8 rounded-xl text-center">
-          <h3 className="text-xl font-bold text-sage-dark mb-4">Grammar Exercise</h3>
-          <p className="text-sage-dark/80">Grammar exercises are coming soon!</p>
-        </div>
-      )
+      return <GrammarExercise exercise={exercise} />
       
     case "conversation":
       // For now, we'll show a placeholder since we haven't implemented conversation exercises

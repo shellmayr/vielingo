@@ -15,8 +15,19 @@ export interface Exercise {
     vocabularyItems?: VocabularyItem[];
     practiceScenarios?: PracticeScenario[];
     quizQuestions?: QuizQuestion[];
+    grammarRules?: GrammarRule[];
   };
   exerciseType: "vocabulary" | "grammar" | "conversation" | "reading" | "listening";
+}
+
+export interface GrammarRule {
+  title: string;
+  explanation: string;
+  examples: {
+    german: string;
+    english: string;
+    note?: string;
+  }[];
 }
 
 export interface VocabularyItem {
@@ -218,7 +229,175 @@ export const exercises: Exercise[] = [
     tags: ["grammar", "vocabulary", "everyday"],
     exerciseType: "grammar",
     content: {
-      introduction: "Talking about your daily routine is a common conversation topic and helps practice present tense verbs.",
+      introduction: "Talking about your daily routine is a common conversation topic and helps practice present tense verbs. In this exercise, you'll learn how to describe your daily activities in German using present tense (Präsens) and time expressions.",
+      grammarRules: [
+        {
+          title: "Regular Verbs in Present Tense",
+          explanation: "In German, regular verbs follow a predictable pattern in the present tense. You take the verb stem (infinitive minus -en) and add the appropriate ending based on the subject.",
+          examples: [
+            {
+              german: "arbeiten (to work) → ich arbeite, du arbeitest, er/sie/es arbeitet, wir arbeiten, ihr arbeitet, sie/Sie arbeiten",
+              english: "The endings are: -e, -st, -t, -en, -t, -en",
+              note: "Notice how the stem 'arbeit-' remains the same and we just add different endings."
+            },
+            {
+              german: "Ich arbeite jeden Tag von neun bis fünf.",
+              english: "I work every day from nine to five."
+            },
+            {
+              german: "Du lernst Deutsch.",
+              english: "You are learning German.",
+              note: "The verb 'lernen' (to learn) follows the same pattern."
+            }
+          ]
+        },
+        {
+          title: "Irregular Verbs in Present Tense",
+          explanation: "Some common German verbs are irregular and change their stem vowel in the present tense, usually in the 2nd and 3rd person singular forms (du/er/sie/es).",
+          examples: [
+            {
+              german: "schlafen (to sleep) → ich schlafe, du schläfst, er/sie/es schläft, wir schlafen, ihr schlaft, sie/Sie schlafen",
+              english: "Notice how the 'a' becomes 'ä' in the du and er/sie/es forms."
+            },
+            {
+              german: "Er schläft acht Stunden pro Nacht.",
+              english: "He sleeps eight hours per night."
+            },
+            {
+              german: "fahren (to drive/go) → ich fahre, du fährst, er/sie/es fährt, wir fahren, ihr fahrt, sie/Sie fahren",
+              english: "Another example of a stem-changing verb."
+            }
+          ]
+        },
+        {
+          title: "Separable Prefix Verbs",
+          explanation: "Many German verbs have separable prefixes. In the present tense, the prefix separates from the verb and moves to the end of the clause.",
+          examples: [
+            {
+              german: "aufstehen (to get up) → ich stehe auf, du stehst auf, er/sie/es steht auf...",
+              english: "The prefix 'auf' separates and moves to the end."
+            },
+            {
+              german: "Ich stehe jeden Morgen um sieben Uhr auf.",
+              english: "I get up at seven o'clock every morning."
+            },
+            {
+              german: "anziehen (to put on) → Ich ziehe meine Kleidung an.",
+              english: "I put on my clothes."
+            }
+          ]
+        },
+        {
+          title: "Time Expressions for Daily Routines",
+          explanation: "Time expressions are crucial for talking about when activities happen. Here are some common expressions used with daily routines.",
+          examples: [
+            {
+              german: "jeden Tag / jeden Morgen / jeden Abend",
+              english: "every day / every morning / every evening"
+            },
+            {
+              german: "morgens, mittags, abends, nachts",
+              english: "in the morning, at noon, in the evening, at night",
+              note: "Add -s to the time of day to express 'in the...'"
+            },
+            {
+              german: "um [time] Uhr",
+              english: "at [time] o'clock",
+              note: "For example: 'um acht Uhr' (at eight o'clock)"
+            },
+            {
+              german: "nach dem Frühstück / vor dem Abendessen",
+              english: "after breakfast / before dinner"
+            }
+          ]
+        }
+      ],
+      practiceScenarios: [
+        {
+          situation: "You want to say that you wake up at 7 AM every day.",
+          question: "Which sentence is correct?",
+          options: [
+            "Ich wache um sieben Uhr jeden Tag auf.",
+            "Ich aufwache um sieben Uhr jeden Tag.",
+            "Ich wache auf um sieben Uhr jeden Tag.",
+            "Ich aufwache jeden Tag um sieben Uhr."
+          ],
+          correctAnswer: "Ich wache um sieben Uhr jeden Tag auf.",
+          explanation: "With separable verbs like 'aufwachen', the prefix 'auf' moves to the end of the clause in the present tense."
+        },
+        {
+          situation: "You want to say that your sister sleeps until 9 AM on weekends.",
+          question: "Which sentence is correct?",
+          options: [
+            "Meine Schwester schlaft bis neun Uhr am Wochenende.",
+            "Meine Schwester schläft bis neun Uhr am Wochenende.",
+            "Meine Schwester schlafe bis neun Uhr am Wochenende.",
+            "Meine Schwester schlafen bis neun Uhr am Wochenende."
+          ],
+          correctAnswer: "Meine Schwester schläft bis neun Uhr am Wochenende.",
+          explanation: "The verb 'schlafen' is irregular and changes from 'a' to 'ä' in the 3rd person singular (er/sie/es) form."
+        },
+        {
+          situation: "You want to say that you eat breakfast at 8 AM.",
+          question: "Which sentence is correct?",
+          options: [
+            "Ich frühstücke um acht Uhr.",
+            "Ich frühstückst um acht Uhr.",
+            "Ich isse Frühstück um acht Uhr.",
+            "Ich esse Frühstück bei acht Uhr."
+          ],
+          correctAnswer: "Ich frühstücke um acht Uhr.",
+          explanation: "The verb 'frühstücken' (to have breakfast) is regular and follows the standard conjugation pattern. The first-person singular form adds '-e' to the stem."
+        },
+        {
+          situation: "You want to ask someone what time they go to work.",
+          question: "Which question is correct?",
+          options: [
+            "Wann gehst du zur Arbeit?",
+            "Wann du gehst zur Arbeit?",
+            "Wann du zur Arbeit gehst?",
+            "Wann zur Arbeit gehst du?"
+          ],
+          correctAnswer: "Wann gehst du zur Arbeit?",
+          explanation: "In German questions with question words like 'wann' (when), the verb comes second and the subject third."
+        }
+      ],
+      quizQuestions: [
+        {
+          question: "Which of these verbs is NOT irregular in the present tense?",
+          options: ["schlafen", "arbeiten", "fahren", "lesen"],
+          correctAnswer: "arbeiten",
+          explanation: "'Arbeiten' is a regular verb that doesn't change its stem in any form of the present tense. The others are all irregular and change their stem vowel in certain forms."
+        },
+        {
+          question: "What happens to separable prefix verbs in the present tense?",
+          options: [
+            "The prefix stays attached to the verb",
+            "The prefix is omitted entirely",
+            "The prefix moves to the end of the clause",
+            "The prefix changes to a different form"
+          ],
+          correctAnswer: "The prefix moves to the end of the clause",
+          explanation: "With separable prefix verbs, the prefix separates from the verb and moves to the end of the clause in the present tense."
+        },
+        {
+          question: "Which time expression correctly uses the dative case?",
+          options: [
+            "jeden Morgen",
+            "nach dem Frühstück",
+            "um acht Uhr",
+            "jeden Tag"
+          ],
+          correctAnswer: "nach dem Frühstück",
+          explanation: "The preposition 'nach' (after) always takes the dative case, so we use 'dem Frühstück' rather than 'das Frühstück'."
+        },
+        {
+          question: "Which is the correct present tense conjugation of 'fahren' for 'wir'?",
+          options: ["wir fahren", "wir fahrt", "wir fähren", "wir fahrst"],
+          correctAnswer: "wir fahren",
+          explanation: "The correct conjugation for 'wir' (we) with 'fahren' is 'wir fahren'. The stem vowel change only occurs in the du and er/sie/es forms."
+        }
+      ]
     }
   },
   {
