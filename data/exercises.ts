@@ -432,7 +432,7 @@ export const exercises: Exercise[] = [
     description: "Learn vocabulary and expressions to talk about weather, seasons, and climate in German.",
     level: "Intermediate",
     duration: "20 min",
-    imageUrl: "/images/hare.png",
+    imageUrl: "/images/mouse_rain.png",
     tags: ["vocabulary", "everyday", "nature"],
     exerciseType: "vocabulary",
     content: {

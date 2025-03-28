@@ -14,10 +14,9 @@ export default function Home() {
           <h1 className="text-sage-dark text-4xl md:text-6xl font-winky leading-tight mb-8 relative z-50">
             Learn German, with your furry friends (and Frank the frog)
           </h1>
-
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 relative z-50">
-            <Button className="bg-tan hover:bg-tan/90 text-white rounded-full px-8 py-6 text-lg font-medium">
-              Start Your Journey
+            <Button className="bg-tan hover:bg-tan/90 text-white rounded-full px-8 py-6 text-lg font-medium" asChild>
+              <a href="/exercises">Start Your Journey</a>
             </Button>
           </div>
         </div>
