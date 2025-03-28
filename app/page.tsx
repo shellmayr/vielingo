@@ -73,16 +73,16 @@ export default function Home() {
             </div>
 
             {/* Speech bubbles */}
-            <div className="absolute top-[-40px] left-[15%] animate-float-slow">
-              <SpeechBubble text="こんにちは" position={{}} />
+            <div className="absolute top-[0px] left-[25%] animate-float-slow">
+              <SpeechBubble text="Grüß Dich" position={{}} />
             </div>
 
-            <div className="absolute top-[20px] right-[20%] animate-float-slow" style={{ animationDelay: "1.5s" }}>
-              <SpeechBubble text="Hola" position={{}} />
+            <div className="absolute top-[150px] right-[30%] animate-float-slow" style={{ animationDelay: "1.5s" }}>
+              <SpeechBubble text="Hallo" position={{}} />
             </div>
 
-            <div className="absolute bottom-[100px] left-[30%] animate-float-slow" style={{ animationDelay: "0.8s" }}>
-              <SpeechBubble text="Bonjour" position={{}} />
+            <div className="absolute top-[-50px] left-[50%] animate-float-slow" style={{ animationDelay: "0.8s" }}>
+              <SpeechBubble text="Servus" position={{}} />
             </div>
           </div>
         </div>
