@@ -1,8 +1,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Logo } from "@/components/logo"
 import { SpeechBubble } from "@/components/speech-bubble"
-import { MobileMenu } from "@/components/mobile-menu"
+import { Navigation } from "@/components/navigation"
 
 export default function Home() {
   return (
@@ -15,25 +14,7 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <header className="relative z-10">
-        <nav className="mx-auto max-w-6xl px-4 py-4">
-          <div className="bg-cream rounded-full px-6 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Logo />
-              <span className="text-sage-dark text-xl font-winky">VieLinGo</span>
-            </div>
-
-            <div className="hidden md:flex items-center gap-8">
-              <button className="text-sage-dark font-medium">Languages</button>
-              <button className="text-sage-dark font-medium">My Progress</button>
-              <button className="text-sage-dark font-medium">Quests</button>
-              <button className="text-sage-dark font-medium">Settings</button>
-            </div>
-
-            <MobileMenu />
-          </div>
-        </nav>
-      </header>
+      <Navigation />
 
       {/* Main Content */}
       <main className="relative z-10 pt-8 pb-20">
@@ -47,12 +28,6 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
             <Button className="bg-tan hover:bg-tan/90 text-white rounded-full px-8 py-6 text-lg font-medium">
               Start Your Journey
-            </Button>
-            <Button
-              variant="outline"
-              className="bg-sage-light/70 border-sage-dark/20 text-sage-dark rounded-full px-8 py-6 text-lg font-medium"
-            >
-              Preview Worlds
             </Button>
           </div>
         </div>
