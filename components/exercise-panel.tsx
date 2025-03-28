@@ -1,15 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
-
-interface Exercise {
-  id: string
-  title: string
-  description: string
-  level: "Beginner" | "Intermediate" | "Advanced"
-  duration: string
-  imageUrl: string
-}
+import { Exercise } from "@/data/exercises"
 
 interface ExercisePanelProps {
   exercise: Exercise
@@ -69,6 +61,17 @@ export function ExercisePanel({ exercise }: ExercisePanelProps) {
           <p className="text-sage-dark/80 mb-4">
             {exercise.description}
           </p>
+          
+          {/* Tags */}
+          {exercise.tags && exercise.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {exercise.tags.map(tag => (
+                <Badge key={tag} variant="outline" className="text-xs">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          )}
           
           <div className="flex justify-end">
             <span className="text-tan font-medium group-hover:translate-x-1 transition-transform duration-300 flex items-center">
