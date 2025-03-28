@@ -14,11 +14,7 @@ export default function ExercisesPage() {
 
       {/* Main Content */}
       <main className="relative z-20 py-12">
-        <div className="mx-auto max-w-4xl px-4">
-          <h1 className="text-sage-dark text-3xl md:text-5xl font-winky text-center mb-8 relative z-50">
-            German Exercises
-          </h1>
-          
+        <div className="mx-auto max-w-4xl px-4">          
           <div className="bg-cream/30 rounded-3xl p-6 backdrop-blur-sm mb-8">
             <p className="text-sage-dark text-center">
               Explore our collection of German language exercises designed to help you learn at your own pace.
