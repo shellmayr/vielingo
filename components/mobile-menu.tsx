@@ -6,7 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Logo } from "@/components/logo"
+import { LogoText } from "@/components/logo-text"
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false)
@@ -27,8 +27,7 @@ export function MobileMenu() {
       </SheetTrigger>
       <SheetContent side="right" className="bg-cream border-sage-dark/20 w-[250px]">
         <div className="flex items-center gap-2 mb-8 mt-6">
-          <Logo />
-          <span className="text-sage-dark text-xl font-mogra">vielingo</span>
+          <LogoText />
         </div>
         
         <div className="flex flex-col gap-4">

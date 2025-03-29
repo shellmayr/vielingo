@@ -1,6 +1,6 @@
 "use client"
 
-import { Logo } from "@/components/logo"
+import { LogoText } from "@/components/logo-text"
 import { MobileMenu } from "@/components/mobile-menu"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -25,8 +25,7 @@ export function Navigation() {
           <div className="flex items-center gap-2">
             <Link href="/">
               <div className="flex items-center gap-2">
-                <Logo />
-                <span className="text-sage-dark text-xl font-mogra z-50">vielingo</span>
+                <LogoText />
               </div>
             </Link>
           </div>
