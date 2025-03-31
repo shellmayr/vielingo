@@ -2,8 +2,14 @@ import { ExercisePanel } from "@/components/exercise-panel"
 import { Navigation } from "@/components/navigation"
 import { SpotlightGlow } from "@/components/spotlight-glow"
 import { getAllExercises } from "@/data/exercises"
+import { Metadata } from "next"
 
-export default function ExercisesPage() {
+export const metadata: Metadata = {
+  title: "German Language Exercises | Vielingo",
+  description: "Explore our collection of German language exercises designed to help you learn at your own pace. From basic greetings to advanced conversations, we've got you covered.",
+}
+
+export default async function ExercisesPage() {
   // Get all exercises from our data file
   const exercises = getAllExercises();
 
