@@ -301,15 +301,86 @@ export const exercises: Exercise[] = [
   },
   {
     id: "food-vocabulary",
-    title: "Food & Dining",
-    description: "Build your food vocabulary and learn how to order meals at restaurants with confidence.",
+    title: "Viennese Food & Kaffeehaus Culture",
+    description: "Navigate the culinary delights (and quirks) of Vienna, from Schnitzel to Sachertorte.",
     level: "Intermediate",
-    duration: "20 min",
+    duration: "25 min",
     imageUrl: "/images/bear_eating.png",
-    tags: ["vocabulary", "dining", "conversation"],
-    exerciseType: "vocabulary",
+    tags: ["vocabulary", "dining", "conversation", "vienna", "austria"],
+    exerciseType: "rolePlaying",
     content: {
-      introduction: "Food is an important part of German culture. Learn how to talk about food and order at restaurants.",
+      introduction: "Welcome to Vienna! Let's learn some essential food terms and practice ordering in a typical Kaffeehaus – watch out for the grumpy waiters!",
+      vocabularyItems: [
+        { german: "das Wiener Schnitzel", english: "Viennese Schnitzel", context: "Thin, breaded, pan-fried veal cutlet. The *real* deal.", pronunciation: "VEE-ner SHNIT-sel" },
+        { german: "der Apfelstrudel", english: "Apple Strudel", context: "Delicious pastry, often served warm with vanilla sauce or ice cream.", pronunciation: "AP-fel-shtroo-del" },
+        { german: "die Sachertorte", english: "Sacher Torte", context: "Famous Viennese chocolate cake with apricot jam. Often source of debate!", pronunciation: "ZAH-kher-tor-teh" },
+        { german: "der Tafelspitz", english: "Boiled Beef", context: "Classic Viennese dish, boiled beef served with horseradish and other sides.", pronunciation: "TAH-fel-shpitz" },
+        { german: "das Gulasch", english: "Goulash", context: "Hearty beef stew, often served with dumplings (Semmelknödel).", pronunciation: "GOO-lash" },
+        { german: "die Melange", english: "Melange (Coffee)", context: "Typical Viennese coffee, similar to a cappuccino but often with less milk foam.", pronunciation: "Meh-LAHNJE" },
+        { german: "der Einspänner", english: "Einspänner (Coffee)", context: "Strong black coffee served in a glass with a large dollop of whipped cream.", pronunciation: "AIN-shpen-ner" },
+        { german: "das Krügerl", english: "Large Beer (0.5L)", context: "Standard size for a draught beer.", pronunciation: "KRÜ-gerl" },
+        { german: "das Seidl", english: "Small Beer (0.3L)", context: "A smaller beer measure.", pronunciation: "ZAI-del" },
+        { german: "der Spritzer / G'spritzter", english: "Wine Spritzer", context: "Wine mixed with sparkling water. Very popular.", pronunciation: "SHPRIT-ser / G'SHPRIT-ster" },
+        { german: "die Eierspeis'", english: "Scrambled Eggs (Austrian Dialect)", context: "Common breakfast item.", pronunciation: "EYE-er-shpeis" },
+        { german: "die Palatschinke", english: "Crêpe / Thin Pancake", context: "Often served sweet (with jam/chocolate) or sometimes savory.", pronunciation: "Pa-la-CHIN-keh" },
+        { german: "der Kellner / die Kellnerin", english: "Waiter / Waitress", context: "Address them respectfully, even if they seem grumpy!", pronunciation: "KEL-ner / KEL-ne-rin" },
+        { german: "Zahlen, bitte!", english: "The bill, please!", context: "How to ask for the check.", pronunciation: "TSAH-len, BIT-teh", formal: true },
+        { german: "Schmäh", english: "Viennese Charm/Wit (can be sarcastic)", context: "A unique aspect of Viennese interaction. Don't always take it literally!", pronunciation: "Shmay" },
+      ],
+      rolePlayingDialogues: [
+        {
+          title: "Ordering in a Viennese Kaffeehaus",
+          initialPrompt: "(The waiter approaches your table, looking slightly impatient) \"Ja, bitte? Was darf's sein?\"",
+          turns: [
+            {
+              speaker: "Partner",
+              prompt: "Ja, bitte? Was darf's sein?"
+            },
+            {
+              speaker: "User",
+              options: [
+                { text: "Ich hätte gern eine Melange und ein Stück Sachertorte.", correct: true, feedback: "Sehr gut! Clear and polite order." },
+                { text: "Geben Sie mir eine Melange und Sachertorte.", correct: false, feedback: "A bit too direct, 'Ich hätte gern' (I would like) is more polite." },
+                { text: "Kaffee und Kuchen, bitte.", correct: false, feedback: "Too general. Specify *which* coffee and cake you want." },
+                { text: "Was empfehlen Sie?", correct: true, feedback: "Good question, but be prepared for a potentially curt answer!" }
+              ],
+            },
+            {
+              speaker: "Partner",
+              prompt: "Eine Melange, eine Sachertorte. Passt.",
+              response: "Eine Melange, eine Sachertorte. Passt."
+            },
+            {
+              speaker: "User",
+              options: [
+                { text: "Entschuldigung, könnten wir bitte zahlen?", correct: true, feedback: "Polite and correct way to ask for the bill." },
+                { text: "Zahlen!", correct: false, feedback: "Way too abrupt! The waiter might ignore you just for that." },
+                { text: "Die Rechnung, bitte.", correct: true, feedback: "Also correct, uses 'Die Rechnung' for bill." },
+                { text: "Was kostet das?", correct: false, feedback: "This asks 'What does that cost?', not directly for the bill to pay." }
+              ]
+            },
+            {
+              speaker: "Partner",
+              prompt: "(Slams the bill holder onto the table) So, das macht dann 12 Euro 50.",
+              response: "(Slams the bill holder onto the table) So, das macht dann 12 Euro 50."
+            },
+            {
+              speaker: "User",
+              options: [
+                { text: "Hier sind 14 Euro, stimmt so.", correct: true, feedback: "Perfect. You state the total amount including tip ('stimmt so' means 'keep the change')." },
+                { text: "12 Euro 50.", correct: false, feedback: "This is just the exact amount. In Austria, tipping is customary, usually rounding up." },
+                { text: "Bitte schön, 15 Euro.", correct: true, feedback: "Also good, giving a higher amount implies the rest is a tip." },
+                { text: "Passt schon.", correct: false, feedback: "This means 'It's okay' but doesn't clearly indicate payment or tip amount." }
+              ]
+            },
+            {
+              speaker: "Partner",
+              prompt: "Danke. Schönen Tag noch.",
+              response: "Danke. Schönen Tag noch."
+            }
+          ]
+        }
+      ]
     }
   },
   {
