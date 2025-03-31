@@ -17,8 +17,9 @@ export interface Exercise {
     quizQuestions?: QuizQuestion[];
     grammarRules?: GrammarRule[];
     gapFillingSentences?: GapFillingSentence[];
+    rolePlayingDialogues?: RolePlayingDialogue[];
   };
-  exerciseType: "vocabulary" | "grammar" | "conversation" | "reading" | "listening" | "gapFilling";
+  exerciseType: "vocabulary" | "grammar" | "conversation" | "reading" | "listening" | "gapFilling" | "rolePlaying";
 }
 
 export interface GrammarRule {
@@ -64,6 +65,26 @@ export interface GapFillingSentence {
     germanComplete: string; // The complete German sentence (no gaps)
   };
   hint?: string; // Optional hint to help the user
+}
+
+export interface RolePlayingDialogue {
+  title: string;
+  initialPrompt: string;
+  turns: RolePlayingTurn[];
+}
+
+export interface RolePlayingTurn {
+  speaker: "User" | "Partner";
+  prompt?: string;
+  options?: RolePlayingOption[];
+  response?: string;
+}
+
+export interface RolePlayingOption {
+  text: string;
+  correct: boolean;
+  feedback?: string;
+  nextTurnIndex?: number;
 }
 
 export const exercises: Exercise[] = [
@@ -213,9 +234,69 @@ export const exercises: Exercise[] = [
     duration: "15 min",
     imageUrl: "/images/bear.png",
     tags: ["vocabulary", "speaking", "conversation"],
-    exerciseType: "conversation",
+    exerciseType: "rolePlaying",
     content: {
-      introduction: "Being able to introduce yourself is one of the first steps in having a conversation in German.",
+      introduction: "Being able to introduce yourself is one of the first steps in having a conversation in German. Let's practice in a role-playing scenario.",
+      rolePlayingDialogues: [
+        {
+          title: "Meeting Someone New at a Party",
+          initialPrompt: "Hallo, ich bin Alex. Wie heißt du?",
+          turns: [
+            {
+              speaker: "Partner",
+              prompt: "Hallo, ich bin Alex. Wie heißt du?",
+            },
+            {
+              speaker: "User",
+              options: [
+                { text: "Ich heiße Maria.", correct: true, feedback: "Great! This is the standard way to state your name." },
+                { text: "Mein Name ist Maria.", correct: true, feedback: "Also correct, a slightly more formal way to say your name." },
+                { text: "Ich bin Maria.", correct: true, feedback: "Simple and common, good choice!" },
+                { text: "Du bist Maria?", correct: false, feedback: "This is a question asking if the other person is Maria." }
+              ]
+            },
+            {
+              speaker: "Partner",
+              prompt: "Schön dich kennenzulernen, Maria. Woher kommst du?",
+            },
+            {
+              speaker: "User",
+              options: [
+                { text: "Ich komme aus Spanien.", correct: true, feedback: "Perfect! You correctly used 'Ich komme aus...' followed by the country." },
+                { text: "Ich bin aus Spanien.", correct: true, feedback: "Also correct and common." },
+                { text: "Ich wohne in Spanien.", correct: false, feedback: "This means 'I live in Spain'. While related, it doesn't directly answer 'Where are you from?'" },
+                { text: "Spanien.", correct: false, feedback: "A bit too short for a conversation. It's better to use a full sentence." }
+              ]
+            },
+            {
+              speaker: "Partner",
+              prompt: "Ah, Spanien! Sehr schön. Was machst du gerne in deiner Freizeit?",
+            },
+            {
+              speaker: "User",
+              options: [
+                { text: "Ich lese gerne Bücher und höre Musik.", correct: true, feedback: "Excellent! You used 'Ich ... gerne...' to talk about hobbies." },
+                { text: "Meine Hobbys sind Bücher lesen und Musik hören.", correct: true, feedback: "Also a great way to list your hobbies." },
+                { text: "Ich mag Bücher und Musik.", correct: false, feedback: "This means 'I like books and music', but doesn't directly answer what you like *doing*." },
+                { text: "Freizeit ist gut.", correct: false, feedback: "This means 'Free time is good', which doesn't answer the question." }
+              ]
+            },
+            {
+              speaker: "Partner",
+              prompt: "Das klingt interessant! War schön mit dir zu plaudern. Bis später vielleicht!",
+            },
+            {
+              speaker: "User",
+              options: [
+                { text: "Tschüss!", correct: true, feedback: "Good informal goodbye."}, 
+                { text: "Bis später!", correct: true, feedback: "Also a good option, implying you might see them again."}, 
+                { text: "Auf Wiedersehen.", correct: false, feedback: "This is a bit too formal for a casual party setting."}, 
+                { text: "Danke.", correct: false, feedback: "'Thank you' doesn't quite fit as a goodbye here."} 
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
