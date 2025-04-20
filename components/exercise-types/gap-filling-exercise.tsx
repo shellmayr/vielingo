@@ -228,7 +228,7 @@ export function GapFillingExercise({ exercise }: GapFillingExerciseProps) {
           onClick={() => setActiveTab("vocabulary")}
           className={getButtonClass(activeTab === "vocabulary")}
         >
-          Transport Vocabulary
+          Vocabulary
         </button>
         <button
           onClick={() => setActiveTab("practice")}
@@ -238,11 +238,11 @@ export function GapFillingExercise({ exercise }: GapFillingExerciseProps) {
         </button>
       </div>
 
-      {/* Transport Vocabulary */}
+      {/* Vocabulary Section */}
       {activeTab === "vocabulary" && (
         <div className="space-y-6">
-          <h3 className="text-xl font-bold text-sage-dark">Transport Vocabulary</h3>
-          <p className="text-sage-dark/80">Learn key vocabulary for transportation and directions in German.</p>
+          <h3 className="text-xl font-bold text-sage-dark">Vocabulary</h3>
+          <p className="text-sage-dark/80">Learn key vocabulary for this exercise.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {exercise.content?.vocabularyItems?.map((item, index) => (

@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export interface LogoTextProps {
   className?: string;
   size?: "small" | "medium" | "large";
@@ -11,30 +13,22 @@ export function LogoText({ className = "", size = "medium" }: LogoTextProps) {
     large: "text-2xl"
   };
 
-  // Underline styling based on size - significantly increased thickness
-  const lineHeight = size === 'large' ? '6px' : size === 'medium' ? '5px' : '4px';
-  // Adjusted position to move much closer to text
-  const baselinePosition = size === 'large' ? '0.08em' : '0.07em';
-
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-flex items-center gap-1">
+      {/* Logo SVG */}
+      <Image
+        src="/images/logo-v.svg"
+        alt="VieLinGo Logo"
+        width={48}
+        height={48}
+        className="h-12 w-12"
+      />
+      
       {/* Main text container */}
       <span className={`relative font-mogra text-sage-dark ${sizeClasses[size]} ${className}`}>
         {/* First part of text before the descending character */}
         <span className="inline-block">vielingo</span>
       </span>
-      
-      {/* The underline that will be broken by the g */}
-      <div 
-        className="absolute bg-sage-dark" 
-        style={{ 
-          height: lineHeight,
-          left: 0,
-          right: 0,
-          bottom: baselinePosition,
-          zIndex: 5
-        }}
-      ></div>
     </div>
   );
 } 

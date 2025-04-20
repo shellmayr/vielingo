@@ -811,6 +811,173 @@ export const exercises: Exercise[] = [
       introduction: "Shopping in a German-speaking country requires specific vocabulary and phrases. Let's learn them!",
     }
   },
+  {
+    id: "wiener-schimpfwoerter",
+    title: "Wiener Schimpfwörter",
+    description: "Learn the colorful world of Viennese insults, complaints, and grumpy expressions.",
+    level: "Advanced",
+    duration: "30 min",
+    imageUrl: "/images/bear_roadrage.png",
+    tags: ["vocabulary", "vienna", "austria", "slang", "culture"],
+    exerciseType: "rolePlaying",
+    content: {
+      // ... existing content ...
+    }
+  },
+  {
+    id: "connector-chaos",
+    title: "Connector Chaos",
+    description: "Master the art of complex sentence construction with advanced German connectors.",
+    level: "Advanced",
+    duration: "25 min",
+    imageUrl: "/images/beaver_logs.png",
+    tags: ["grammar", "writing", "advanced", "connectors"],
+    exerciseType: "gapFilling",
+    content: {
+      introduction: "Deutsche Konjunktionen sind der Schlüssel zu natürlichen, fließenden Sätzen. In dieser Übung lernst du, wie man typische deutsche Ausdrücke wie 'zwar ... aber', 'dennoch', 'sodass', 'während' und 'dadurch' richtig verwendet, um deine Sätze lebendiger und authentischer zu machen.",
+      vocabularyItems: [
+        {
+          german: "zwar ... aber",
+          english: "while it's true that ... but",
+          context: "Used to acknowledge a point before presenting a contrasting one, very common in everyday German"
+        },
+        {
+          german: "dennoch",
+          english: "nevertheless, nonetheless",
+          context: "Used to express that something happens despite previous circumstances, more formal than 'trotzdem'"
+        },
+        {
+          german: "sodass",
+          english: "so that, such that",
+          context: "Indicates a consequence or result, often used in formal writing and speech"
+        },
+        {
+          german: "während",
+          english: "while, whereas",
+          context: "Can indicate simultaneous actions or contrast between two situations"
+        },
+        {
+          german: "dadurch",
+          english: "thereby, through this",
+          context: "Indicates a means or method by which something is achieved, common in academic and formal contexts"
+        }
+      ],
+      grammarRules: [
+        {
+          title: "Position der Konjunktionen",
+          explanation: "Manche Konjunktionen (wie 'dennoch') beeinflussen die Satzstellung nicht, während andere (wie 'sodass') das Verb ans Ende des Satzes verschieben. Achte auch auf die richtige Kommasetzung!",
+          examples: [
+            {
+              german: "Es regnet in Strömen, dennoch gehe ich spazieren.",
+              english: "It's pouring rain, nevertheless I'm going for a walk."
+            },
+            {
+              german: "Es regnet so stark, sodass ich zu Hause bleiben muss.",
+              english: "It's raining so hard that I have to stay home."
+            }
+          ]
+        }
+      ],
+      gapFillingSentences: [
+        {
+          sentence: "Die Prüfung war wirklich schwer, [gap] habe ich sie mit Bravour bestanden.",
+          missingWords: ["dennoch"],
+          distractorWords: ["zwar", "sodass", "während", "dadurch"],
+          translations: {
+            english: "The exam was really difficult, nevertheless I passed it with flying colors.",
+            germanComplete: "Die Prüfung war wirklich schwer, dennoch habe ich sie mit Bravour bestanden."
+          },
+          hint: "Diese Konjunktion drückt aus, dass etwas trotz vorheriger Umstände passiert."
+        },
+        {
+          sentence: "[gap] das Wetter herrlich ist, [gap] müssen wir heute leider drinnen bleiben.",
+          missingWords: ["Zwar", "aber"],
+          distractorWords: ["Während", "dennoch", "sodass", "dadurch"],
+          translations: {
+            english: "While the weather is beautiful, unfortunately we have to stay inside today.",
+            germanComplete: "Zwar ist das Wetter herrlich, aber wir müssen heute leider drinnen bleiben."
+          },
+          hint: "Dies ist eine zweiteilige Konjunktion, die einen Gegensatz ausdrückt."
+        },
+        {
+          sentence: "Ich habe mich so sehr angestrengt, [gap] ich die Prüfung mit Auszeichnung bestehen konnte.",
+          missingWords: ["sodass"],
+          distractorWords: ["zwar", "dennoch", "während", "dadurch"],
+          translations: {
+            english: "I worked so hard that I could pass the exam with distinction.",
+            germanComplete: "Ich habe mich so sehr angestrengt, sodass ich die Prüfung mit Auszeichnung bestehen konnte."
+          },
+          hint: "Diese Konjunktion zeigt eine Folge oder ein Ergebnis an."
+        },
+        {
+          sentence: "[gap] ich koche, höre ich gerne klassische Musik.",
+          missingWords: ["Während"],
+          distractorWords: ["Zwar", "dennoch", "sodass", "dadurch"],
+          translations: {
+            english: "While I cook, I like to listen to classical music.",
+            germanComplete: "Während ich koche, höre ich gerne klassische Musik."
+          },
+          hint: "Diese Konjunktion zeigt gleichzeitige Handlungen an."
+        },
+        {
+          sentence: "Ich habe jeden Tag geübt. [gap] konnte ich meine Deutschkenntnisse deutlich verbessern.",
+          missingWords: ["Dadurch"],
+          distractorWords: ["Zwar", "dennoch", "sodass", "während"],
+          translations: {
+            english: "I practiced every day. Through this, I could significantly improve my German skills.",
+            germanComplete: "Ich habe jeden Tag geübt. Dadurch konnte ich meine Deutschkenntnisse deutlich verbessern."
+          },
+          hint: "Diese Konjunktion zeigt ein Mittel oder eine Methode an."
+        },
+        {
+          sentence: "[gap] der Film spannend war, [gap] hat er mir nicht so gut gefallen wie das Buch.",
+          missingWords: ["Zwar", "aber"],
+          distractorWords: ["Während", "dennoch", "sodass", "dadurch"],
+          translations: {
+            english: "While the movie was exciting, I didn't like it as much as the book.",
+            germanComplete: "Zwar war der Film spannend, aber er hat mir nicht so gut gefallen wie das Buch."
+          },
+          hint: "Dies ist eine zweiteilige Konjunktion, die einen Gegensatz ausdrückt."
+        },
+        {
+          sentence: "Es war eiskalt draußen, [gap] haben wir einen wunderschönen Winterspaziergang gemacht.",
+          missingWords: ["dennoch"],
+          distractorWords: ["zwar", "sodass", "während", "dadurch"],
+          translations: {
+            english: "It was freezing outside, nevertheless we took a beautiful winter walk.",
+            germanComplete: "Es war eiskalt draußen, dennoch haben wir einen wunderschönen Winterspaziergang gemacht."
+          },
+          hint: "Diese Konjunktion drückt aus, dass etwas trotz vorheriger Umstände passiert."
+        }
+      ],
+      practiceScenarios: [
+        {
+          situation: "Du schreibst einen Aufsatz über Umweltschutz.",
+          question: "Welche Konjunktion passt am besten in diesen Satz: 'Die Regierung hat neue Gesetze eingeführt, _____ die Luftqualität sich deutlich verbessert hat.'",
+          options: [
+            "sodass",
+            "während",
+            "dennoch",
+            "dadurch"
+          ],
+          correctAnswer: "sodass",
+          explanation: "'Sodass' ist hier richtig, weil es das Ergebnis der Regierungsmaßnahmen zeigt. Der vollständige Satz bedeutet: 'Die Regierung hat neue Gesetze eingeführt, sodass die Luftqualität sich deutlich verbessert hat.'"
+        },
+        {
+          situation: "Du beschreibst zwei gegensätzliche Situationen.",
+          question: "Welches Konjunktionspaar passt am besten in diesen Satz: '_____ das Restaurant teuer ist, _____ ist das Essen wirklich ausgezeichnet.'",
+          options: [
+            "Zwar ... aber",
+            "Während ... dennoch",
+            "Dadurch ... sodass",
+            "Dennoch ... während"
+          ],
+          correctAnswer: "Zwar ... aber",
+          explanation: "'Zwar ... aber' ist hier richtig, weil es einen Gegensatz zwischen dem teuren Restaurant und dem ausgezeichneten Essen herstellt."
+        }
+      ]
+    }
+  },
 ];
 
 export function getAllExercises(): Exercise[] {

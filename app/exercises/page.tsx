@@ -1,6 +1,7 @@
 import { ExercisePanel } from "@/components/exercise-panel"
 import { Navigation } from "@/components/navigation"
 import { SpotlightGlow } from "@/components/spotlight-glow"
+import { Pagination } from "@/components/pagination"
 import { getAllExercises } from "@/data/exercises"
 import { Metadata } from "next"
 
@@ -9,9 +10,23 @@ export const metadata: Metadata = {
   description: "Explore our collection of German language exercises designed to help you learn at your own pace. From basic greetings to advanced conversations, we've got you covered.",
 }
 
-export default async function ExercisesPage() {
+interface ExercisesPageProps {
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export default async function ExercisesPage({ searchParams }: ExercisesPageProps) {
   // Get all exercises from our data file
-  const exercises = getAllExercises();
+  const allExercises = getAllExercises();
+  
+  // Pagination settings
+  const itemsPerPage = 3;
+  const currentPage = Number(searchParams.page) || 1;
+  
+  // Calculate pagination
+  const totalPages = Math.ceil(allExercises.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentExercises = allExercises.slice(startIndex, endIndex);
 
   return (
     <div className="min-h-screen bg-sage-green relative overflow-hidden">
@@ -30,13 +45,20 @@ export default async function ExercisesPage() {
           
           <div className="flex flex-col gap-6 relative">
             <SpotlightGlow />
-            {exercises.map((exercise) => (
+            {currentExercises.map((exercise) => (
               <ExercisePanel 
                 key={exercise.id}
                 exercise={exercise}
               />
             ))}
           </div>
+
+          {/* Pagination */}
+          <Pagination 
+            currentPage={currentPage}
+            totalPages={totalPages}
+            itemsPerPage={itemsPerPage}
+          />
         </div>
       </main>
     </div>
