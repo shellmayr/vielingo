@@ -22,7 +22,7 @@ export async function generateMetadata(
 
 export async function generateImageMetadata({ searchParams }: ExercisesPageProps) {
   // You could use searchParams here if the image depended on them
-  const imageUrl = new URL('/bear.png', process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000').toString();
+  const imageUrl = new URL('/bear_small.png', process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000').toString();
 
   return new ImageResponse(
     (

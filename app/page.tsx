@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export async function generateImageMetadata() {
   // We're not using params or searchParams here, so they are omitted
   return [{
-    url: '/bear.png', // Assuming bear.png is in the public folder
+    url: '/bear_small.png', // Assuming bear.png is in the public folder
     width: 1200,
     height: 630,
     alt: 'Vielingo - Learn German Effectively',
