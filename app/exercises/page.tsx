@@ -4,6 +4,9 @@ import { SpotlightGlow } from "@/components/spotlight-glow"
 import { Pagination } from "@/components/pagination"
 import { getAllExercises } from "@/data/exercises"
 import { Metadata } from "next"
+import { ImageResponse } from '@vercel/og';
+
+export const runtime = 'edge'; // Required for ImageResponse
 
 export async function generateMetadata(
   { searchParams }: ExercisesPageProps,
@@ -19,12 +22,32 @@ export async function generateMetadata(
 
 export async function generateImageMetadata({ searchParams }: ExercisesPageProps) {
   // You could use searchParams here if the image depended on them
-  return [{
-    url: '/bear.png', // Assuming bear.png is in the public folder
-    width: 1200,
-    height: 630,
-    alt: 'Vielingo German Language Exercises',
-  }]
+  const imageUrl = new URL('/bear.png', process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000').toString();
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          fontSize: 48,
+          background: 'white',
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <img src={imageUrl} alt="Vielingo Bear" width="256" height="256" />
+        <p style={{ marginTop: 20, fontSize: 32 }}>Vielingo German Language Exercises</p>
+      </div>
+    ),
+    {
+      width: 1200,
+      height: 630,
+      // You can also pass custom fonts here if needed
+    }
+  );
 }
 
 interface ExercisesPageProps {
