@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
 import { AnimalsDisplay } from "@/components/animals-display"
 import { Metadata } from 'next'
+import { ImageResponse } from 'next/og';
+
+export const runtime = 'edge'; // Required for ImageResponse
 
 // Basic metadata for the home page
 export const metadata: Metadata = {
@@ -10,13 +13,31 @@ export const metadata: Metadata = {
 }
 
 export async function generateImageMetadata() {
-  // We're not using params or searchParams here, so they are omitted
-  return [{
-    url: '/bear_small.png', // Assuming bear.png is in the public folder
-    width: 1200,
-    height: 630,
-    alt: 'Vielingo - Learn German Effectively',
-  }]
+  const imageUrl = new URL('/bear_small.png', process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000').toString();
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          fontSize: 48,
+          background: 'white',
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <img src={imageUrl} alt="Vielingo Bear" width="256" height="256" />
+        <p style={{ marginTop: 20, fontSize: 32 }}>Vielingo | Learn German Effectively</p>
+      </div>
+    ),
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
 }
 
 export default function Home() {
