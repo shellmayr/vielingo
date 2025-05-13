@@ -17,6 +17,16 @@ export async function generateMetadata(
   }
 }
 
+export async function generateImageMetadata({ searchParams }: ExercisesPageProps) {
+  // You could use searchParams here if the image depended on them
+  return [{
+    url: '/bear.png', // Assuming bear.png is in the public folder
+    width: 1200,
+    height: 630,
+    alt: 'Vielingo German Language Exercises',
+  }]
+}
+
 interface ExercisesPageProps {
   searchParams: { [key: string]: string | string[] | undefined }
 }

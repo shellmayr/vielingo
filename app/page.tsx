@@ -1,6 +1,23 @@
 import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
 import { AnimalsDisplay } from "@/components/animals-display"
+import { Metadata } from 'next'
+
+// Basic metadata for the home page
+export const metadata: Metadata = {
+  title: "Vielingo | Learn German Effectively",
+  description: "Vielingo helps you learn German through interactive exercises and a personalized learning experience. Start your journey to fluency today!",
+}
+
+export async function generateImageMetadata() {
+  // We're not using params or searchParams here, so they are omitted
+  return [{
+    url: '/bear.png', // Assuming bear.png is in the public folder
+    width: 1200,
+    height: 630,
+    alt: 'Vielingo - Learn German Effectively',
+  }]
+}
 
 export default function Home() {
   return (
