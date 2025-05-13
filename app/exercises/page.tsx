@@ -20,35 +20,6 @@ export async function generateMetadata(
   }
 }
 
-export async function generateImageMetadata({ searchParams }: ExercisesPageProps) {
-  // You could use searchParams here if the image depended on them
-  const imageUrl = new URL('/bear_small.png', process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000').toString();
-
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          fontSize: 48,
-          background: 'white',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <img src={imageUrl} alt="Vielingo Bear" width="256" height="256" />
-        <p style={{ marginTop: 20, fontSize: 32 }}>Vielingo German Language Exercises</p>
-      </div>
-    ),
-    {
-      width: 1200,
-      height: 630,
-      // You can also pass custom fonts here if needed
-    }
-  );
-}
 
 interface ExercisesPageProps {
   searchParams: { [key: string]: string | string[] | undefined }
