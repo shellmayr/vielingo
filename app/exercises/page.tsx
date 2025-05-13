@@ -5,9 +5,16 @@ import { Pagination } from "@/components/pagination"
 import { getAllExercises } from "@/data/exercises"
 import { Metadata } from "next"
 
-export const metadata: Metadata = {
-  title: "German Language Exercises | Vielingo",
-  description: "Explore our collection of German language exercises designed to help you learn at your own pace. From basic greetings to advanced conversations, we've got you covered.",
+export async function generateMetadata(
+  { searchParams }: ExercisesPageProps,
+  // parent: ResolvingMetadata // Optional: to access metadata from parent routes
+): Promise<Metadata> {
+  // Optionally, you could use searchParams or fetch data here
+  // For now, we'll return the static metadata
+  return {
+    title: "German Language Exercises | Vielingo",
+    description: "Explore our collection of German language exercises designed to help you learn at your own pace. From basic greetings to advanced conversations, we've got you covered.",
+  }
 }
 
 interface ExercisesPageProps {
