@@ -5,7 +5,7 @@ export default function FunErrorPage() {
   const makeComputerYell = () => {
     // This will throw "TypeError: document.yell is not a function"
     // It's a bit fun because it sounds like you're asking the document to yell.
-    (document as any).yell("I'm a computer and I'm mad as hell!"); 
+    (document as any).console.log("I'm a computer and I'm mad as hell!"); 
   };
 
   return (
