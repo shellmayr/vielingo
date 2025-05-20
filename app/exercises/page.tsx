@@ -3,32 +3,8 @@ import { Navigation } from "@/components/navigation"
 import { SpotlightGlow } from "@/components/spotlight-glow"
 import { Pagination } from "@/components/pagination"
 import { getAllExercises } from "@/data/exercises"
-import { OpenGraph } from "next/dist/lib/metadata/types/opengraph-types"
 
 export const runtime = 'edge'; // Required for ImageResponse
-
-export async function generateMetadata(
-  { searchParams }: ExercisesPageProps,
-  // parent: ResolvingMetadata // Optional: to access metadata from parent routes
-): Promise<OpenGraph> {
-  // Optionally, you could use searchParams or fetch data here
-  // For now, we'll return the static metadata
-  const imageUrl = new URL('/bear.png', process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000').toString();
-
-  return {
-    title: "German Language Exercises | Vielingo",
-    description: "Explore our collection of German language exercises designed to help you learn at your own pace. From basic greetings to advanced conversations, we've got you covered.",
-    images: [
-      {
-        url: imageUrl,
-        width: 1200,
-        height: 630,
-        alt: 'Vielingo German Language Exercises Bear',
-      },
-    ],
-  }
-}
-
 
 interface ExercisesPageProps {
   searchParams: { [key: string]: string | string[] | undefined }
