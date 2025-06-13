@@ -18,9 +18,9 @@ const nextConfig = {
     unoptimized: true,
   },
   experimental: {
-    // webpackBuildWorker: true,
-    // parallelServerBuildTraces: true,
-    // parallelServerCompiles: true,
+    webpackBuildWorker: true,
+    parallelServerBuildTraces: true,
+    parallelServerCompiles: true,
   },
 };
 
@@ -50,8 +50,8 @@ const finalConfig = withSentryConfig(nextConfig, {
   // For all available options, see:
   // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
-  org: "sentry-sdks",
-  project: "javascript-nextjs-ii",
+  org: "telex-sandbox",
+  project: "vielingo",
 
   // Only print logs for uploading source maps in CI
   silent: false,
