@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org telex-sandbox --project vielingo ./.next/ && sentry-cli sourcemaps upload --org telex-sandbox --project vielingo ./.next/"
+    "lint": "next lint"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

@@ -1,28 +1,28 @@
-import { Navigation } from "@/components/navigation";
-import Link from "next/link";
-import { getExerciseById, Exercise, getAllExercises } from "@/data/exercises";
-import { Badge } from "@/components/ui/badge";
-import { notFound } from "next/navigation";
-import { ExerciseRouter } from "@/components/exercise-router";
+import { Navigation } from "@/components/navigation"
+import Link from "next/link"
+import { getExerciseById, Exercise, getAllExercises } from "@/data/exercises"
+import { Badge } from "@/components/ui/badge"
+import { notFound } from "next/navigation"
+import { ExerciseRouter } from "@/components/exercise-router"
 
 interface ExercisePageProps {
-  params: Promise<{
-    id: string;
-  }>;
+  params: {
+    id: string
+  }
 }
 
 // Generate static routes for all exercises
 export function generateStaticParams() {
   const exercises = getAllExercises();
-  return exercises.map((exercise) => ({
+  return exercises.map(exercise => ({
     id: exercise.id,
   }));
 }
 
-export default async function ExercisePage({ params }: ExercisePageProps) {
-  const { id } = await params;
+export default function ExercisePage({ params }: ExercisePageProps) {
+  const { id } = params;
   const exercise = getExerciseById(id);
-
+  
   // If exercise not found, show 404 page
   if (!exercise) {
     notFound();
@@ -31,15 +31,15 @@ export default async function ExercisePage({ params }: ExercisePageProps) {
   const getLevelVariant = (level: Exercise["level"]) => {
     switch (level) {
       case "Beginner":
-        return "green";
+        return "green"
       case "Intermediate":
-        return "blue";
+        return "blue"
       case "Advanced":
-        return "purple";
+        return "purple"
       default:
-        return "default";
+        return "default"
     }
-  };
+  }
 
   return (
     <div className="min-h-screen bg-sage-green relative overflow-hidden">
@@ -50,21 +50,12 @@ export default async function ExercisePage({ params }: ExercisePageProps) {
       <main className="relative z-20 py-12">
         <div className="mx-auto max-w-4xl px-4">
           <div className="mb-6">
-            <Link
-              href="/exercises"
+            <Link 
+              href="/exercises" 
               className="text-sage-dark flex items-center hover:underline"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mr-1"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L4.414 9H17a1 1 0 110 2H4.414l5.293 5.293a1 1 0 010 1.414z"
-                  clipRule="evenodd"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L4.414 9H17a1 1 0 110 2H4.414l5.293 5.293a1 1 0 010 1.414z" clipRule="evenodd" />
               </svg>
               Back to Exercises
             </Link>
@@ -84,23 +75,23 @@ export default async function ExercisePage({ params }: ExercisePageProps) {
                 </span>
               </div>
             </div>
-
+            
             {/* Tags */}
             {exercise.tags && exercise.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-6">
-                {exercise.tags.map((tag) => (
+                {exercise.tags.map(tag => (
                   <Badge key={tag} variant="outline" className="text-xs">
                     {tag}
                   </Badge>
                 ))}
               </div>
             )}
-
+            
             {/* Exercise content */}
             <ExerciseRouter exercise={exercise} />
           </div>
         </div>
       </main>
     </div>
-  );
-}
+  )
+} 
