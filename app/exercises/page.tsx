@@ -7,7 +7,7 @@ import { getAllExercises } from "@/data/exercises"
 export const runtime = 'edge'; // Required for ImageResponse
 
 interface ExercisesPageProps {
-  searchParams: { [key: string]: string | string[] | undefined }
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 export default async function ExercisesPage({ searchParams }: ExercisesPageProps) {
@@ -16,7 +16,7 @@ export default async function ExercisesPage({ searchParams }: ExercisesPageProps
   
   // Pagination settings
   const itemsPerPage = 3;
-  const currentPage = Number(searchParams.page) || 1;
+  const currentPage = Number((await searchParams).page) || 1;
   
   // Calculate pagination
   const totalPages = Math.ceil(allExercises.length / itemsPerPage);
