@@ -6,9 +6,9 @@ import { notFound } from "next/navigation"
 import { ExerciseRouter } from "@/components/exercise-router"
 
 interface ExercisePageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 // Generate static routes for all exercises
@@ -19,8 +19,8 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ExercisePage({ params }: ExercisePageProps) {
-  const { id } = params;
+export default async function ExercisePage({ params }: ExercisePageProps) {
+  const { id } = await params;
   const exercise = getExerciseById(id);
   
   // If exercise not found, show 404 page
