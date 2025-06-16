@@ -1,0 +1,334 @@
+# Vienna B1-B2 German Learning Platform - Engineering Tasks
+
+## Phase 1: Core Infrastructure & Data Model Enhancement
+
+### Task 1.1: Extend Exercise Data Model for B2 Complexity ✅ COMPLETED
+- **Priority**: High
+- **Estimated Time**: 2 days
+- Update `data/exercises.ts` interface to support B2-level exercise types:
+  - ✅ Add `cefrLevel: "B1" | "B2"` field to Exercise interface
+  - ✅ Add `vienneseTheme: "wiener-wohnen" | "heurigenkultur" | "kaffeehauskultur" | "alltagsgeschichten" | "wiener-grant-schmaeh" | "fiaker"` field
+  - ✅ Add new exercise types: `"reading-comprehension" | "listening-comprehension" | "complex-grammar" | "matching" | "ordering" | "true-false-not-given"`
+  - ✅ Add `ReadingComprehensionContent`, `ListeningComprehensionContent`, `MatchingContent`, `OrderingContent` interfaces
+  - ✅ Add `feedback: { correct: string; incorrect: string; explanation: string }` to all question types
+  - ✅ Add `audioFiles: { url: string; duration: number; transcript?: string }[]` for listening exercises
+  - ✅ Add `difficulty: "easy" | "medium" | "hard"` within B2 level
+  - ✅ Add `austrianGermanTerms: { term: string; definition: string; highGermanEquivalent?: string }[]`
+
+### Task 1.2: Create Vienna Content Management System ✅ COMPLETED
+- **Priority**: High  
+- **Estimated Time**: 3 days
+- Create `data/vienna-content.ts` with structured content for each theme:
+  - ✅ Wiener Wohnen: social housing texts, tenant notices, historical context
+  - ✅ Heurigenkultur: wine tavern traditions, vocabulary, cultural significance
+  - ✅ Kaffeehauskultur: coffee house culture, UNESCO heritage aspects, famous establishments
+  - ✅ Alltagsgeschichten: everyday Vienna life scenarios, common situations
+  - ✅ Wiener Grant/Schmäh: cultural personality traits, expressions, humor examples
+  - ✅ Fiaker: historical background, tourist information, regulations
+- ✅ Include authentic Austrian German vocabulary with Standard German equivalents
+- ✅ Provide multiple difficulty levels within B2 range for each theme
+
+### Task 1.3: Audio Management System ✅ COMPLETED
+- **Priority**: Medium
+- **Estimated Time**: 2 days
+- Create `lib/audio-manager.ts` for handling audio files:
+  - ✅ Support for MP3/OGG formats
+  - ✅ Audio metadata management (duration, transcript, speaker info)
+  - ✅ Preloading and caching strategies
+  - ✅ Volume and playback controls
+  - ✅ Support for Viennese accents and Standard German variants
+- ✅ Create `public/audio/vienna/` directory structure organized by theme
+- ✅ Implement audio compression and optimization utilities
+
+## Phase 2: Advanced Exercise Components
+
+### Task 2.1: Reading Comprehension Component ✅ COMPLETED
+- **Priority**: High
+- **Estimated Time**: 4 days
+- Create `components/exercise-types/reading-comprehension-exercise.tsx`:
+  - ✅ Support for complex Vienna-themed texts (500-800 words)
+  - ✅ Multiple Choice Questions with sophisticated distractors
+  - ✅ True/False/Not Given questions
+  - ✅ Text highlighting and annotation features
+  - ✅ Progress indicator for long texts
+  - ✅ Vocabulary tooltips for Austrian German terms
+  - ✅ Reading time tracking and recommendations
+  - ✅ Support for different text types: articles, forum posts, official documents
+
+### Task 2.2: Listening Comprehension Component ✅ COMPLETED
+- **Priority**: High
+- **Estimated Time**: 4 days
+- Create `components/exercise-types/listening-comprehension-exercise.tsx`:
+  - ✅ Custom audio player with transcript toggle
+  - ✅ Support for Vienna-specific audio content (interviews, conversations, news)
+  - ✅ Multiple choice questions based on audio content
+  - ✅ Fill-in-the-blank exercises synchronized with audio
+  - ✅ Replay controls for specific segments
+  - ✅ Speed adjustment (0.75x, 1x, 1.25x)
+  - ✅ Waveform visualization
+  - ✅ Support for multiple speakers and Vienna accents
+
+### Task 2.3: Advanced Grammar Component ✅ COMPLETED
+- **Priority**: High
+- **Estimated Time**: 3 days
+- Enhance `components/exercise-types/grammar-exercise.tsx` for B2 level:
+  - ✅ Complex sentence construction with zweiteilige Konnektoren
+  - ✅ Konjunktiv II exercises in Vienna contexts
+  - ✅ Passive voice with modal verbs
+  - ✅ Partizipien als Adjektive exercises
+  - ✅ Nominalisierung practice
+  - ✅ Indirekte Rede exercises
+  - ✅ Relativsätze with Vienna landmarks and culture
+  - ✅ Conditional sentences (real/irreal) with local scenarios
+
+### Task 2.4: Matching Exercise Component ✅ COMPLETED
+- **Priority**: Medium
+- **Estimated Time**: 2 days
+- Create `components/exercise-types/matching-exercise.tsx`:
+  - ✅ Drag-and-drop interface for pairing items
+  - ✅ Support for text-to-text, image-to-text, audio-to-text matching
+  - ✅ Vienna vocabulary matching (Austrian German ↔ Standard German)
+  - ✅ Cultural concepts matching (traditions ↔ descriptions)
+  - ✅ Touch-friendly mobile interface
+  - ✅ Visual feedback for correct/incorrect matches
+
+### Task 2.5: Ordering/Sequencing Component
+- **Priority**: Medium
+- **Estimated Time**: 2 days
+- Create `components/exercise-types/ordering-exercise.tsx`:
+  - Drag-and-drop interface for reordering items
+  - Story/event sequencing exercises
+  - Sentence construction ordering
+  - Logical argument ordering
+  - Historical timeline exercises (Vienna history)
+  - Process ordering (e.g., Heuriger traditions, coffee house etiquette)
+
+## Phase 3: Enhanced User Experience & Feedback System
+
+### Task 3.1: Advanced Feedback System
+- **Priority**: High
+- **Estimated Time**: 3 days
+- Create `components/feedback-system.tsx`:
+  - Immediate correct/incorrect feedback
+  - Detailed explanations for wrong answers
+  - Grammar rule references with Vienna examples
+  - Cultural context explanations
+  - Progress tracking with visual indicators
+  - Adaptive difficulty based on performance
+  - Links to relevant grammar resources
+  - Mistake pattern analysis and recommendations
+
+### Task 3.2: Progress Tracking Dashboard
+- **Priority**: Medium
+- **Estimated Time**: 3 days
+- Create `components/progress-dashboard.tsx`:
+  - Individual exercise completion tracking
+  - Theme-based progress (completion per Vienna theme)
+  - CEFR level advancement indicators
+  - Skill-specific progress (reading, listening, grammar)
+  - Time spent learning analytics
+  - Streak tracking and achievements
+  - Weak areas identification and recommendations
+  - Export progress reports
+
+### Task 3.3: Vienna Cultural Context Panel
+- **Priority**: Medium
+- **Estimated Time**: 2 days
+- Create `components/vienna-context-panel.tsx`:
+  - Contextual information about Vienna themes
+  - Cultural explanations and background
+  - Photo galleries of Vienna landmarks/scenes
+  - Interactive maps of Vienna districts
+  - Historical timeline integration
+  - Austrian German vs Standard German comparisons
+  - Cultural tips and etiquette guides
+
+## Phase 4: Content Creation & Data Population
+
+### Task 4.1: B2 Reading Comprehension Content Creation ✅ STARTED
+- **Priority**: High
+- **Estimated Time**: 5 days
+- Create 30+ reading comprehension exercises across Vienna themes:
+  - ✅ Wiener Wohnen: 1 exercise completed (Leben im Gemeindebau)
+  - Heurigenkultur: 6 exercises (wine culture articles, tradition explanations)
+  - Kaffeehauskultur: 6 exercises (historical texts, café reviews, cultural significance)
+  - Alltagsgeschichten: 6 exercises (everyday scenarios, opinion pieces)
+  - Wiener Grant/Schmäh: 3 exercises (cultural personality explanations)
+  - Fiaker: 3 exercises (historical texts, tourist information, regulations)
+- ✅ Each exercise has detailed feedback with cultural context
+- ✅ Include vocabulary lists and cultural notes
+
+### Task 4.2: B2 Listening Comprehension Content Creation
+- **Priority**: High
+- **Estimated Time**: 6 days
+- Create 25+ listening comprehension exercises:
+  - Record or source authentic Vienna-themed audio content
+  - Dialogues: friends planning Heuriger visits, housing discussions
+  - Interviews: residents discussing Vienna life, cultural experts
+  - News reports: Vienna events, policies, cultural celebrations
+  - Service interactions: Wiener Wohnen calls, tourist information
+- Create transcripts and detailed question sets
+- Ensure mix of male/female speakers with authentic Vienna accents
+
+### Task 4.3: Advanced Grammar Content for Vienna Contexts
+- **Priority**: High
+- **Estimated Time**: 4 days
+- Create 40+ advanced grammar exercises using Vienna themes:
+  - Konjunktiv II: hypothetical Vienna scenarios, polite requests
+  - Passive voice: official Vienna regulations, news reports
+  - Complex conjunctions: pros/cons of Vienna living aspects
+  - Partizipien: descriptions of Vienna landmarks and culture
+  - Indirect speech: reporting Vienna news, interviews
+  - Nominalization: formal Vienna administrative language
+- Each exercise with 5-8 questions and comprehensive explanations
+
+### Task 4.4: Austrian German Vocabulary Integration
+- **Priority**: Medium
+- **Estimated Time**: 2 days
+- Create comprehensive Austrian German vocabulary database:
+  - 200+ common Austriacisms with Standard German equivalents
+  - Vienna-specific terms and expressions
+  - Food and drink terminology (Heuriger, Kaffeehaus)
+  - Administrative and housing terminology
+  - Cultural and social expressions
+  - Integration into existing exercise types
+
+## Phase 5: Technical Optimization & Polish
+
+### Task 5.1: Performance Optimization
+- **Priority**: Medium
+- **Estimated Time**: 2 days
+- Optimize application performance:
+  - Lazy loading for audio files and large content
+  - Image optimization for Vienna photos
+  - Code splitting by exercise type
+  - Caching strategies for frequently accessed content
+  - Bundle size optimization
+  - Mobile performance optimization
+
+### Task 5.2: Accessibility Improvements
+- **Priority**: Medium  
+- **Estimated Time**: 2 days
+- Enhance accessibility:
+  - Screen reader support for all exercise types
+  - Keyboard navigation for drag-and-drop exercises
+  - High contrast mode support
+  - Font size adjustment options
+  - Audio transcripts and captions
+  - ARIA labels and roles throughout
+
+### Task 5.3: Mobile-First Responsive Design
+- **Priority**: High
+- **Estimated Time**: 3 days
+- Ensure excellent mobile experience:
+  - Touch-optimized drag-and-drop interfaces
+  - Mobile-friendly audio controls
+  - Responsive layout for all exercise types
+  - Swipe gestures for navigation
+  - Optimized text rendering for reading exercises
+  - Mobile-specific UI patterns
+
+### Task 5.4: Error Handling & Edge Cases
+- **Priority**: Medium
+- **Estimated Time**: 2 days
+- Implement comprehensive error handling:
+  - Audio loading failures with fallback options
+  - Network connectivity issues
+  - Invalid user input handling
+  - Exercise state recovery after interruption
+  - Graceful degradation for unsupported features
+  - User-friendly error messages in German and English
+
+## Phase 6: Testing & Quality Assurance
+
+### Task 6.1: Content Accuracy Validation
+- **Priority**: High
+- **Estimated Time**: 3 days
+- Validate all Vienna-themed content:
+  - Austrian German accuracy verification
+  - Cultural context accuracy
+  - Grammar exercise correctness
+  - Audio quality and pronunciation
+  - Visual content appropriateness
+  - Accessibility compliance testing
+
+### Task 6.2: User Experience Testing
+- **Priority**: High
+- **Estimated Time**: 2 days
+- Conduct thorough UX testing:
+  - Navigation flow optimization
+  - Exercise completion user journeys
+  - Mobile device testing across platforms
+  - Loading time optimization
+  - User feedback collection implementation
+  - A/B testing framework setup
+
+### Task 6.3: Automated Testing Suite
+- **Priority**: Medium
+- **Estimated Time**: 3 days
+- Create comprehensive test coverage:
+  - Unit tests for all exercise components
+  - Integration tests for audio functionality
+  - E2E tests for complete exercise flows
+  - Performance testing automation
+  - Accessibility testing automation
+  - Content validation tests
+
+## Phase 7: Launch Preparation
+
+### Task 7.1: Content Management Interface
+- **Priority**: Low
+- **Estimated Time**: 3 days
+- Create admin interface for content management:
+  - Exercise creation and editing tools
+  - Audio file upload and management
+  - Progress analytics dashboard
+  - User feedback management
+  - Content publishing workflow
+  - Backup and version control for content
+
+### Task 7.2: Analytics Integration
+- **Priority**: Medium
+- **Estimated Time**: 1 day
+- Implement learning analytics:
+  - Exercise completion tracking
+  - Time-on-task measurements
+  - Error pattern analysis
+  - Learning path optimization data
+  - Cultural content engagement metrics
+  - Performance improvement tracking
+
+### Task 7.3: Deployment & Monitoring
+- **Priority**: High
+- **Estimated Time**: 2 days
+- Prepare production deployment:
+  - CDN setup for audio and image assets
+  - Performance monitoring tools
+  - Error tracking and alerting
+  - Backup and recovery procedures
+  - Scalability planning
+  - Security auditing
+
+## Additional Considerations
+
+### Content Authenticity
+- All Vienna-themed content should be culturally accurate and respectful
+- Include diverse perspectives on Vienna life and culture
+- Balance between educational content and entertainment value
+- Regular content updates to reflect current Vienna developments
+
+### Pedagogical Approach
+- Maintain clear progression from B1 to B2 level
+- Scaffold complex grammar concepts with Vienna contexts
+- Provide multiple learning paths based on user preferences
+- Include self-assessment tools and learning objectives
+
+### Technical Architecture
+- Maintain clean, maintainable code structure
+- Follow TypeScript best practices throughout
+- Implement comprehensive documentation
+- Plan for future feature additions and content expansion
+- Consider internationalization for interface elements
+
+**Total Estimated Timeline: 12-14 weeks**
+**Team Size Recommendation: 1 Senior Full-Stack Engineer + 1 Content Creator + 1 UX/UI Designer (part-time)** 

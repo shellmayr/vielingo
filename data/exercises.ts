@@ -87,6 +87,89 @@ export interface RolePlayingOption {
   nextTurnIndex?: number;
 }
 
+// New exercise content interfaces for B2 level exercises
+export interface ReadingComprehensionContent {
+  title: string;
+  text: string;
+  questions: ReadingQuestion[];
+  vocabulary?: VocabularyHighlight[];
+  culturalContext?: string;
+}
+
+export interface ReadingQuestion {
+  id: string;
+  question: string;
+  type: 'multiple-choice' | 'true-false' | 'short-answer';
+  options?: string[];
+  correctAnswer: string;
+  explanation?: string;
+}
+
+export interface VocabularyHighlight {
+  word: string;
+  definition: string;
+  context?: string;
+}
+
+export interface ListeningComprehensionContent {
+  title: string;
+  audioUrl: string;
+  transcript?: string;
+  questions: ListeningQuestion[];
+  segments?: AudioSegment[];
+  culturalContext?: string;
+}
+
+export interface ListeningQuestion {
+  id: string;
+  question: string;
+  type: 'multiple-choice' | 'true-false' | 'fill-in-blank';
+  options?: string[];
+  correctAnswer: string;
+  timeStamp?: number;
+  explanation?: string;
+}
+
+export interface AudioSegment {
+  start: number;
+  end: number;
+  text: string;
+  speaker?: string;
+}
+
+export interface ComplexGrammarContent {
+  title: string;
+  grammarType: 'subjunctive' | 'passive-voice' | 'complex-conjunctions' | 'advanced-cases';
+  questions: GrammarQuestion[];
+  rules?: GrammarRule[];
+  culturalContext?: string;
+}
+
+export interface GrammarQuestion {
+  id: string;
+  question: string;
+  context?: string;
+  options: string[];
+  correctAnswer: string;
+  explanation?: string;
+  hint?: string;
+  culturalNote?: string;
+}
+
+export interface MatchingContent {
+  title: string;
+  instructions: string;
+  matchingType: 'text-to-text' | 'image-to-text' | 'audio-to-text';
+  pairs: MatchingPair[];
+  culturalContext?: string;
+}
+
+export interface MatchingPair {
+  left: string;
+  right: string;
+  explanation?: string;
+}
+
 export const exercises: Exercise[] = [
   {
     id: "basic-greetings",
