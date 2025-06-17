@@ -93,16 +93,25 @@ export interface ReadingComprehensionContent {
   text: string;
   questions: ReadingQuestion[];
   vocabulary?: VocabularyHighlight[];
+  vocabularySupport?: VocabularyItem[];
   culturalContext?: string;
+  wordCount?: number;
+  textType?: string;
 }
 
 export interface ReadingQuestion {
   id: string;
   question: string;
-  type: 'multiple-choice' | 'true-false' | 'short-answer';
+  type: 'multiple-choice' | 'true-false' | 'short-answer' | 'true-false-not-given';
   options?: string[];
   correctAnswer: string;
   explanation?: string;
+  difficulty?: 'easy' | 'medium' | 'hard';
+  feedback?: {
+    explanation: string;
+    culturalContext?: string;
+    grammarReference?: string;
+  };
 }
 
 export interface VocabularyHighlight {
