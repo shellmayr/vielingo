@@ -3,6 +3,7 @@ import { Navigation } from "@/components/navigation"
 import { SpotlightGlow } from "@/components/spotlight-glow"
 import { Pagination } from "@/components/pagination"
 import { getAllExercises } from "@/data/exercises"
+import * as Sentry from "@sentry/nextjs";
 
 export const runtime = 'edge'; // Required for ImageResponse
 
@@ -18,11 +19,19 @@ export default async function ExercisesPage({ searchParams }: ExercisesPageProps
   const itemsPerPage = 3;
   const currentPage = Number((await searchParams).page) || 1;
   
+  // Declare variables outside the span so they can be used in JSX
+  let totalPages: number = 0;
+  let currentExercises: any[] = [];
+  
   // Calculate pagination
-  const totalPages = Math.ceil(allExercises.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentExercises = allExercises.slice(startIndex, endIndex);
+  await Sentry.startSpan({
+    name: 'Calculate Pagination',
+  }, async () => {
+    totalPages = Math.ceil(allExercises.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    currentExercises = allExercises.slice(startIndex, endIndex);
+  });
 
   return (
     <div className="min-h-screen bg-sage-green relative overflow-hidden">
